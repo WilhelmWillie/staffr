@@ -1,0 +1,52 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <h4 *ngIf='!editMode'>{{currentEmployee.name}}</h4>
+
+    <input type='text' class='form-control' name='name' [(ngModel)] = 'name' *ngIf='editMode'>
+  </div>
+
+  <div class='panel-body'>
+    <p>
+      <b>Position: </b> 
+
+      <span *ngIf='!editMode'>{{currentEmployee.position}}</span>
+      <input type='text' class='form-control' name='position' [(ngModel)] = 'position' *ngIf='editMode'>
+    </p>
+
+    <p>
+      <b>Department: </b> 
+
+      <span *ngIf='!editMode'>{{currentEmployee.department}}</span>
+      <input type='text' class='form-control' name='dept' [(ngModel)] = 'dept' *ngIf='editMode'>
+    </p>
+
+    <p>
+      <b>Phone Number: </b> 
+
+      <span *ngIf='!editMode'>{{currentEmployee.phoneNumber}}</span>
+      <input type='text' class='form-control' name='phoneNumber' [(ngModel)] = 'phoneNumber' *ngIf='editMode'>
+    </p>
+
+    <p>
+      <b>E-Mail: </b> 
+
+      <span *ngIf='!editMode'>{{currentEmployee.email}}</span>
+      <input type='text' class='form-control' name='email' [(ngModel)] = 'email' *ngIf='editMode'>
+    </p>
+
+    <p>
+      <b>Notes: </b> 
+      
+      <span *ngIf='!editMode'>{{currentEmployee.notes}}</span>
+      <textarea class='form-control' name='notes' [(ngModel)] = 'notes' *ngIf='editMode'></textarea>
+    </p>
+
+    <button class='btn btn-primary' (click)="updateEmployee()" *ngIf='editMode'>Update Employee</button>
+  </div>
+
+  <div class='panel-footer text-right'>
+    <button class='btn btn-default' (click)="edit(); $event.stopPropagation()">
+        <i class='glyphicon glyphicon-pencil'></i>
+    </button>
+  </div>
+</div>  
